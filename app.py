@@ -28,6 +28,8 @@ Spy = False
 Chat_Leave = False
 #------------------------------------------#
 
+from flask import Flask, jsonify
+
 app = Flask(__name__)
 
 Hr = {
@@ -38,7 +40,19 @@ Hr = {
     'Expect': "100-continue",
     'X-Unity-Version': "2018.4.11f1",
     'X-GA': "v1 1",
-    'ReleaseVersion': "OB51"}
+    'ReleaseVersion': "OB51"
+}
+
+@app.route("/")
+def home():
+    return jsonify({
+        "status": "Flask API running",
+        "headers_loaded": True
+    })
+
+@app.route("/ping")
+def ping():
+    return jsonify({"ping": "pong"})
 
 # ---- Random Colores ----
 def get_random_color():
