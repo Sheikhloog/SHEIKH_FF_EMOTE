@@ -1,1 +1,0 @@
-# SHEIKH_FF_EMOTE
